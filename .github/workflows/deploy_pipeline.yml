@@ -31,6 +31,8 @@ jobs:
       - name: Configure Private Key
         run: |
           echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > .snowflake/snowflake_rsa_key
+      - name: Set up environment
+        run: echo "PRIVATE_KEY_PASSPHRASE=${{ secrets.PRIVATE_KEY_PASSPHRASE }}"
 
       # Install Snowflake CLI GitHub Action and point to config file
       - name: Install snowflake-cli
